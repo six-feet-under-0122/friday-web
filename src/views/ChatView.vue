@@ -94,7 +94,8 @@ const handleLoginSuccess = () => {
       v-model:visible="showLogin"
       @success="handleLoginSuccess"
     />
-
+<!-- host127.0.0.1:5173/chat -->
+ <!-- host127.0.0.1:5001/chat -->
     <div class="header">
       <h1>RAG 智能助手</h1>
       <div class="user-info">

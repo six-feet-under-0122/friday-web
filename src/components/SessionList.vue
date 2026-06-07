@@ -10,6 +10,7 @@ const sessions = ref([]);
 const activeSessionId = ref(null);
 
 const loadSessions = async () => {
+  if (!localStorage.getItem('token')) return;
   try {
     const res = await chatAPI.getSessions();
     sessions.value = res.sessions || [];
@@ -35,7 +36,8 @@ const createSession = async () => {
 const deleteSession = async (session, event) => {
   event.stopPropagation();
   try {
-    await ElMessageBox.confirm('确定删除这个会话吗？', '提示', {
+    await ElMessageBox.confirm('确定删除这个会话吗？'
+    , '提示', {
       type: 'warning'
     });
     await chatAPI.deleteSession(session.id);

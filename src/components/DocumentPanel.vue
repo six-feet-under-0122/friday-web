@@ -8,6 +8,7 @@ const documents = ref([]);
 const uploading = ref(false);
 
 const loadDocuments = async () => {
+  if (!localStorage.getItem('token')) return;
   try {
     const res = await documentAPI.getList();
     documents.value = res.documents || [];

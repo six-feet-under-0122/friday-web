@@ -20,8 +20,18 @@ const isUser = computed(() => props.message.type === 'user');
     </div>
     <div class="bubble">
       <div class="text">{{ message.text }}</div>
-      <div class="time">{{ message.time }}</div>
-    </div>
+      
+      <div v-if="message.sources?.length" class="sources">
+        <div class="source-title">来源</div>
+        <ul>
+          <li v-for="(s, i) in message.sources" :key="i">
+            {{ s.filename }} (p{{ s.page }})
+          </li>
+        </ul>
+      </div>
+
+  <div class="time">{{ message.time }}</div>
+</div>
   </div>
 </template>
 
