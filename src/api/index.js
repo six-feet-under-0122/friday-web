@@ -47,6 +47,7 @@ export const documentAPI = {
   },
   getList: () => request.get('/documents'),
   delete: (id) => request.delete(`/document/${id}`),
+  getAnalysis: () => request.get('/analysis'),
 };
 
 export const chatAPI = {
